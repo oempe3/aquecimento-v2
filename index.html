@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pernambuco III – Aquecimento de Motores</title>
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <img src="termeletrica-pernambuco-iii-logo.png" alt="Pernambuco III" class="logo" />
+      <div class="titles">
+        <h1>AQUECIMENTO DE MOTORES – OUTUBRO DE 2025</h1>
+      </div>
+    </div>
+    <aside class="summary">
+      <div class="summary-content">
+        <div class="summary-image">
+          <img src="Genset_Azul.png" alt="Genset Azul" class="genset-icon" />
+        </div>
+        <div class="summary-text">
+          <div class="summary-line">🔌 <strong>Motores com aquecedor elétrico</strong>: <span id="elec-list">05, 06, 11, 12, 17, 18, 19, 20</span></div>
+          <div class="summary-line">🧮 <strong>Economia total (elétricos)</strong>: <span id="total-litros">0,0</span> L • <span id="total-reais">R$ 0,00</span></div>
+          <div class="summary-note">🗓️ Projeção referente ao intervalo de datas selecionado e início de operação das resistências.</div>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <main class="container">
+    <section class="card inputs">
+      <h2>Entrada de dados</h2>
+      <div class="grid-2 compact">
+        <label>Preço do litro diesel (R$): <input id="diesel-price" type="number" step="0.01" value="5.34" /></label>
+        <label>Consumo aquecimento (L/h): <input id="diesel-consumption" type="number" step="0.01" value="6.30" /></label>
+      </div>
+      <div class="status-message" id="status-message">Carregando dados do repositório...</div>
+    </section>
+
+    <section class="card filters">
+      <h2>Filtros</h2>
+      <div class="filters-row">
+        <div class="datebox">
+          <label>Início:</label>
+          <input id="start-dt" type="datetime-local" disabled />
+        </div>
+        <div class="datebox">
+          <label>Fim:</label>
+          <input id="end-dt" type="datetime-local" disabled />
+        </div>
+      </div>
+      <div class="motors">
+        <div class="motors-title">Motores (clique para alternar):</div>
+        <div id="motor-list" class="motor-list"></div>
+      </div>
+    </section>
+
+    <section class="card chart-card">
+      <div class="chart-header">
+        <h3>Gráfico de Temperatura</h3>
+      </div>
+      <div id="plot" class="plot"></div>
+    </section>
+
+    <section class="cards" id="cards"></section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <div>O&M – Pernambuco III</div>
+        <div><span id="period"></span></div>
+      </div>
+      <div class="footer-right">
+        <a href="https://oempe3.github.io/statusV10/status.html" class="status-link" title="Quadro de disponibilidade PEIII">
+          🚦 Quadro de disponibilidade
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
